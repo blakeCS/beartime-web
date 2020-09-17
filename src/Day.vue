@@ -113,9 +113,9 @@
       <transition-group name="list" tag="div">
         <div class="blockContainer" v-for="block in _schedule" :key="block._id"
           :style="{height: String(block.duration * sizing) + 'px'}">
-          <div class="block" :style="{background: colors[block.number - 1]}">
+          <div class="block" :style="{background: colors[block.number - 1]}" data-day="{{_schedule[0].name}}">
             <header class="blockHeader" v-if="block.duration >= 20">
-              <span class="blockName" v-if="block.name && !block.lunch">{{ block.name }}</span>
+              <span class="blockName" v-if="block.name && !block.lunch">Name: {{ block.name }}</span>
               <span class="blockName" v-if="block.name && block.lunch">
                 <span class="lunch" @click="toggleLunch(date, block.lunch)"
                   title="Toggle Lunch">{{ block.lunch === 1 ? 'First' : 'Second' }}</span> Lunch
